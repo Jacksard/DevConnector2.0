@@ -3,6 +3,9 @@ const config = require('config');
 
 const db = config.get('mongoURI');
 
+// Deprecation warning off with this:
+mongoose.set('useFindAndModify', false);
+
 const connectDB = async () => {
   try {
     await mongoose.connect(db, {
